@@ -10,6 +10,9 @@
 public class PrefixAgain {
 
     public boolean prefixAgain(String str, int n) {
+        if (str.length() == 0 || n <= 0 || str.length() < n) {
+            return false;
+        }
         String prefix = str.substring(0, n);
         for (int i = 1; i < str.length() - n + 1; i++) {
             if ((str.substring(i, i + n)).equals(prefix)) {
