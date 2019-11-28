@@ -72,7 +72,7 @@ class PrefixAgainTest {
         boolean answer2 = prefixAgain.prefixAgain("aaacccsaaacac", 3);
         boolean answer3 = prefixAgain.prefixAgain("assssas", 1);
         boolean answer4 = prefixAgain.prefixAgain("abbbbbbaa", 1);
-        
+
         //THEN
         assertTrue(answer1);
         assertTrue(answer2);
