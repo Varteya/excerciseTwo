@@ -7,8 +7,11 @@
 public class LuckyOneThree {
 
     public boolean lucky13(int[] nums) {
-        for (int i : nums){
-            if ((i == 1) || (i == 3)){
+        if (nums == null) {
+            return true;
+        }
+        for (int i : nums) {
+            if ((i == 1) || (i == 3)) {
                 return false;
             }
         }

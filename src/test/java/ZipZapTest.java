@@ -4,17 +4,38 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ZipZapTest {
 
-    @Test
-    public void shouldTestExtremeValues() {
-        //GIVEN
-        ZipZap zipZap = new ZipZap();
+    //GIVEN
+    ZipZap zipZap = new ZipZap();
 
+    @Test
+    public void shouldTestEmptyString() {
+        //WHEN
+        String answer = zipZap.zipZap("");
+
+        //THEN
+        assertEquals("", answer);
+    }
+
+    @Test
+    public void shouldTestNull() {
+        //WHEN
+        String answer = zipZap.zipZap(null);
+
+        //THEN
+        assertNull(answer);
+    }
+
+    @Test
+    public void shouldTestShortStrings() {
         //WHEN
         String answer1 = zipZap.zipZap("");
         String answer2 = zipZap.zipZap("z");
         String answer3 = zipZap.zipZap("zp");
         String answer4 = zipZap.zipZap("zz");
         String answer5 = zipZap.zipZap("pp");
+        String answer6 = zipZap.zipZap("ap");
+        String answer7 = zipZap.zipZap("za");
+        String answer8 = zipZap.zipZap("sd");
 
 
         //THEN
@@ -23,13 +44,13 @@ class ZipZapTest {
         assertEquals("zp", answer3);
         assertEquals("zz", answer4);
         assertEquals("pp", answer5);
+        assertEquals("ap", answer6);
+        assertEquals("za", answer7);
+        assertEquals("sd", answer8);
     }
 
     @Test
     public void shouldDoZipZap() {
-        //GIVEN
-        ZipZap zipZap = new ZipZap();
-
         //WHEN
         String answer1 = zipZap.zipZap("zzzp");
         String answer2 = zipZap.zipZap("zppppp");
@@ -38,7 +59,6 @@ class ZipZapTest {
         String answer5 = zipZap.zipZap("zzpp");
         String answer6 = zipZap.zipZap("zipzipzip");
         String answer7 = zipZap.zipZap("zPtppztppp");
-
 
         //THEN
         assertEquals("zzp", answer1);
@@ -52,9 +72,6 @@ class ZipZapTest {
 
     @Test
     public void shouldNotDoZipZap() {
-        //GIVEN
-        ZipZap zipZap = new ZipZap();
-
         //WHEN
         String answer1 = zipZap.zipZap("zzzffp");
         String answer2 = zipZap.zipZap("zaappppp");
@@ -63,7 +80,6 @@ class ZipZapTest {
         String answer5 = zipZap.zipZap("zzaapp");
         String answer6 = zipZap.zipZap("zispzdipzgip");
         String answer7 = zipZap.zipZap("zPtppGYOztIUppp");
-
 
         //THEN
         assertEquals("zzzffp", answer1);

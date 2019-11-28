@@ -3,34 +3,67 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UnluckyOneTest {
+    //GIVEN
+    UnluckyOne unluckyOne = new UnluckyOne();
 
     @Test
-    public void shouldTestExtremeValues () {
-        //GIVEN
-        UnluckyOne unluckyOne = new UnluckyOne();
-
+    public void shouldTestNullArray() {
         //WHEN
-        boolean answer1 = unluckyOne.unlucky1(new int[]{});
-        boolean answer2 = unluckyOne.unlucky1(new int[]{1});
-        boolean answer3 = unluckyOne.unlucky1(new int[]{1, 3});
-        boolean answer4 = unluckyOne.unlucky1(new int[]{1, 1});
-        boolean answer5 = unluckyOne.unlucky1(new int[]{1, 1, 3});
-        boolean answer6 = unluckyOne.unlucky1(new int[]{1, 1, 1});
+        boolean answer = unluckyOne.unlucky1(null);
 
         //THEN
-        assertEquals(false, answer1);
-        assertEquals(false, answer2);
-        assertEquals(true, answer3);
-        assertEquals(false, answer4);
-        assertEquals(true, answer5);
-        assertEquals(false, answer6);
+        assertFalse(answer);
     }
 
     @Test
-    public void shouldReturnTrue () {
-        //GIVEN
-        UnluckyOne unluckyOne = new UnluckyOne();
+    public void shouldTestEmptyArray() {
+        //WHEN
+        boolean answer = unluckyOne.unlucky1(new int[]{});
 
+        //THEN
+        assertFalse(answer);
+    }
+
+    @Test
+    public void shouldTestNoThreeAndOneInLastPosition() {
+        //WHEN
+        boolean answer1 = unluckyOne.unlucky1(new int[]{1});
+        boolean answer2 = unluckyOne.unlucky1(new int[]{2, 1});
+        boolean answer3 = unluckyOne.unlucky1(new int[]{1, 1, 1});
+        boolean answer4 = unluckyOne.unlucky1(new int[]{1, 1});
+        boolean answer5 = unluckyOne.unlucky1(new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1});
+        boolean answer6 = unluckyOne.unlucky1(new int[]{6, 6, 6, 6, 6, 6, 1});
+        boolean answer7 = unluckyOne.unlucky1(new int[]{6, 6, 6, 6, 6, 6, 1, 1, 1, 1});
+
+        //THEN
+        assertFalse(answer1);
+        assertFalse(answer2);
+        assertFalse(answer3);
+        assertFalse(answer4);
+        assertFalse(answer5);
+        assertFalse(answer6);
+        assertFalse(answer7);
+    }
+
+    @Test
+    public void shouldTestOneAndTheeOnTheEdge() {
+        //WHEN
+        boolean answer1 = unluckyOne.unlucky1(new int[]{1, 3});
+        boolean answer2 = unluckyOne.unlucky1(new int[]{1, 1, 3});
+        boolean answer3 = unluckyOne.unlucky1(new int[]{1, 3, 3, 3, 2, 42, 5});
+        boolean answer4 = unluckyOne.unlucky1(new int[]{1, 3, 3, 3, 2, 42, 5});
+        boolean answer5 = unluckyOne.unlucky1(new int[]{1, 2, 3, 3, 3, 2, 1, 3});
+
+        //THEN
+        assertTrue(answer1);
+        assertTrue(answer2);
+        assertTrue(answer3);
+        assertTrue(answer4);
+        assertTrue(answer5);
+    }
+
+    @Test
+    public void shouldFoundThreeImmediatelyAfterOne() {
         //WHEN
         boolean answer1 = unluckyOne.unlucky1(new int[]{1, 3});
         boolean answer2 = unluckyOne.unlucky1(new int[]{1, 1, 3});
@@ -40,18 +73,16 @@ class UnluckyOneTest {
         boolean answer6 = unluckyOne.unlucky1(new int[]{14, 1, 3, 2, 2, 1});
 
         //THEN
-        assertEquals(true, answer1);
-        assertEquals(true, answer2);
-        assertEquals(true, answer3);
-        assertEquals(true, answer4);
-        assertEquals(true, answer5);
-        assertEquals(true, answer6);
+        assertTrue(answer1);
+        assertTrue(answer2);
+        assertTrue(answer3);
+        assertTrue(answer4);
+        assertTrue(answer5);
+        assertTrue(answer6);
     }
-    @Test
-    public void shouldReturnFalse () {
-        //GIVEN
-        UnluckyOne unluckyOne = new UnluckyOne();
 
+    @Test
+    public void shouldNotFoundThreeImmediatelyAfterOne() {
         //WHEN
         boolean answer1 = unluckyOne.unlucky1(new int[]{1, 4});
         boolean answer2 = unluckyOne.unlucky1(new int[]{1, 2, 3});
@@ -61,11 +92,11 @@ class UnluckyOneTest {
         boolean answer6 = unluckyOne.unlucky1(new int[]{14, 1, 4, 2, 2, 1});
 
         //THEN
-        assertEquals(false, answer1);
-        assertEquals(false, answer2);
-        assertEquals(false, answer3);
-        assertEquals(false, answer4);
-        assertEquals(false, answer5);
-        assertEquals(false, answer6);
+        assertFalse(answer1);
+        assertFalse(answer2);
+        assertFalse(answer3);
+        assertFalse(answer4);
+        assertFalse(answer5);
+        assertFalse(answer6);
     }
 }

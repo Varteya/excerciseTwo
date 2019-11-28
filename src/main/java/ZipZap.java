@@ -7,19 +7,16 @@
 
 public class ZipZap {
 
-    public static void main(String[] args) {
-        ZipZap zipZap = new ZipZap();
-        String answer4 = zipZap.zipZap("zsaaszspz");
-        System.out.println(answer4);
-    }
-
     public String zipZap(String str) {
+        if (str == null) {
+            return null;
+        }
         String answer = "";
         if (str.length() < 3) {
             return str;
         }
         for (int i = 0; i < str.length(); i++) {
-            if ((i < str.length() - 2) && (str.charAt(i) == 'z' && str.charAt(i + 2) == 'p')){
+            if ((i < str.length() - 2) && (str.charAt(i) == 'z' && str.charAt(i + 2) == 'p')) {
                 answer = answer + "zp";
                 i += 2;
             } else {

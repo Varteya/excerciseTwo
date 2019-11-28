@@ -9,11 +9,11 @@
 public class RepeatSeparator {
 
     public String repeatSeparator(String word, String sep, int count) {
-        if (count == 0){
+        if (count <= 0) {
             return "";
         }
         String answer = word;
-        for (int i = 1; i < count; i++){
+        for (int i = 1; i < count; i++) {
             answer = answer + sep + word;
         }
         return answer;
