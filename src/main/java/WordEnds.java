@@ -10,9 +10,12 @@ public class WordEnds {
 
     public String wordEnds(String str, String word) {
         if (str == null) {
-            return null;
+            throw new IllegalArgumentException("String should be not null");
         }
-        if (word == null || word.equals("")) {
+        if (word == null) {
+            throw new IllegalArgumentException("Word should be not null");
+        }
+        if (word.equals("")) {
             return "";
         }
         if (str.length() <= word.length()) {

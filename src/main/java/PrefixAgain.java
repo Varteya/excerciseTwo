@@ -10,6 +10,9 @@
 public class PrefixAgain {
 
     public boolean prefixAgain(String str, int n) {
+        if (str == null) {
+            throw new IllegalArgumentException("String should be not null");
+        }
         if (str.length() == 0 || n <= 0 || str.length() < n) {
             return false;
         }

@@ -1,19 +1,19 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class XyzMiddleTest {
+public class XyzMiddleTest {
 
     //GIVEN
     XyzMiddle xyzMiddle = new XyzMiddle();
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void shouldTestNull () {
         //WHEN
         boolean answer = xyzMiddle.xyzMiddle(null);
 
         //THEN
-        assertFalse(answer);
+        fail("Expected IllegalArgumentException");
     }
     @Test
     public void shouldTestEmptyString () {

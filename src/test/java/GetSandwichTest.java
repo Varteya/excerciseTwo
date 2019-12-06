@@ -1,19 +1,20 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class GetSandwichTest {
+
+public class GetSandwichTest {
 
     //GIVEN
     GetSandwich getSandwich = new GetSandwich();
 
-    @Test
-    public void shouldTestNullString () {
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldTestNullString () throws IllegalArgumentException {
         //WHEN
         String answer = getSandwich.getSandwich(null);
 
         //THEN
-        assertNull(answer);
+        fail("Expected IllegalArgumentException");
     }
 
     @Test

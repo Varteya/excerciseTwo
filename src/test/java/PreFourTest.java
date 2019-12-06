@@ -1,20 +1,21 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class PreFourTest {
+public class PreFourTest {
 
     //GIVEN
     PreFour preFour = new PreFour();
 
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void shouldTestNull () {
         //WHEN
         int[] answer = preFour.pre4(null);
 
         //THEN
-        assertNull(answer);
+        fail("Expected IllegalArgumentException");
     }
+
     @Test
     public void shouldTestEmptyArray () {
         //WHEN

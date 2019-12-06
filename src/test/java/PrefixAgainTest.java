@@ -1,12 +1,21 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class PrefixAgainTest {
+public class PrefixAgainTest {
 
 
     //GIVEN
     PrefixAgain prefixAgain = new PrefixAgain();
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldTestNullString () {
+        //WHEN
+        boolean answer = prefixAgain.prefixAgain(null, 1);
+
+        //THEN
+        fail("Expected IllegalArgumentException");
+    }
 
     @Test
     public void shouldTestVoidString () {

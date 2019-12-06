@@ -1,8 +1,8 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class ZipZapTest {
+public class ZipZapTest {
 
     //GIVEN
     ZipZap zipZap = new ZipZap();
@@ -16,13 +16,13 @@ class ZipZapTest {
         assertEquals("", answer);
     }
 
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void shouldTestNull() {
         //WHEN
         String answer = zipZap.zipZap(null);
 
         //THEN
-        assertNull(answer);
+        fail("Expected IllegalArgumentException");
     }
 
     @Test

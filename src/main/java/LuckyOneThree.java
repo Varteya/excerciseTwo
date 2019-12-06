@@ -8,7 +8,7 @@ public class LuckyOneThree {
 
     public boolean lucky13(int[] nums) {
         if (nums == null) {
-            return true;
+            throw new IllegalArgumentException("Array should be not null");
         }
         for (int i : nums) {
             if ((i == 1) || (i == 3)) {

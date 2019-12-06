@@ -1,18 +1,18 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class UnluckyOneTest {
+public class UnluckyOneTest {
     //GIVEN
     UnluckyOne unluckyOne = new UnluckyOne();
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void shouldTestNullArray() {
         //WHEN
         boolean answer = unluckyOne.unlucky1(null);
 
         //THEN
-        assertFalse(answer);
+        fail("Expected IllegalArgumentException");
     }
 
     @Test

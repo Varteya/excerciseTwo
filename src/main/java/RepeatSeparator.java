@@ -9,6 +9,12 @@
 public class RepeatSeparator {
 
     public String repeatSeparator(String word, String sep, int count) {
+        if (word == null) {
+            throw new IllegalArgumentException("Word should be not null");
+        }
+        if (sep == null) {
+            throw new IllegalArgumentException("Separator should be not null");
+        }
         if (count <= 0) {
             return "";
         }

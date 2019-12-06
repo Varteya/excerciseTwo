@@ -1,11 +1,29 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class RepeatSeparatorTest {
+public class RepeatSeparatorTest {
 
     //GIVEN
     RepeatSeparator repeatSeparator = new RepeatSeparator();
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldTestNullWord() {
+        //WHEN
+        String answer = repeatSeparator.repeatSeparator(null, "sd", 4);
+
+        //THEN
+        fail("Expected IllegalArgumentException");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldTestNullSeparator() {
+        //WHEN
+        String answer = repeatSeparator.repeatSeparator("sdsdsd", null, 4);
+
+        //THEN
+        fail("Expected IllegalArgumentException");
+    }
 
     @Test
     public void shouldTestIncorrectCounter() {

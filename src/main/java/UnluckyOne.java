@@ -8,7 +8,10 @@
 public class UnluckyOne {
 
     public boolean unlucky1(int[] nums) {
-        if (nums == null || nums.length < 2) {
+        if (nums == null) {
+            throw new IllegalArgumentException("Array should be not null");
+        }
+        if (nums.length < 2) {
             return false;
         }
         if ((nums[0] == 1 && nums[1] == 3) ||

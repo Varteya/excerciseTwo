@@ -1,34 +1,28 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class PlusOutTest {
+public class PlusOutTest {
 
     //GIVEN
     PlusOut plusOut = new PlusOut();
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void shouldTestNullString(){
         //WHEN
         String answer = plusOut.plusOut(null, "");
 
         //THEN
-        assertNull(answer);
+        fail("Expected IllegalArgumentException");
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void shouldTestNullWord () {
         //WHEN
-        String answer1 = plusOut.plusOut("", null);
-        String answer2 = plusOut.plusOut("qweqwe", null);
-        String answer3 = plusOut.plusOut("......", null);
-        String answer4 = plusOut.plusOut("1234567", null);
+        String answer = plusOut.plusOut("qweweweq", null);
 
         //THEN
-        assertEquals("", answer1);
-        assertEquals("++++++", answer2);
-        assertEquals("++++++", answer3);
-        assertEquals("+++++++", answer4);
+        assertTrue(false);
     }
 
     @Test

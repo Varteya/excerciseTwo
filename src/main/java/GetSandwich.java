@@ -16,7 +16,7 @@ public class GetSandwich {
 
     public String getSandwich(String str) {
         if (str == null) {
-            return null;
+            throw new IllegalArgumentException("String should be not null");
         }
         int firstBreadIndex = -1;
         for (int i = 0; i < str.length() - 4; i++) {

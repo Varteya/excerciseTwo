@@ -8,10 +8,13 @@
 public class PlusOut {
     public String plusOut(String str, String word) {
         if (str == null) {
-            return null;
+            throw new IllegalArgumentException("String should be not null");
+        }
+        if (word == null) {
+            throw new IllegalArgumentException("Word should be not null");
         }
         String answer = "";
-        if ((word == null) || (str.length() < word.length()) || (word.equals(""))) {
+        if ((str.length() < word.length()) || (word.equals(""))) {
             for (int i = 0; i < str.length(); i++) {
                 answer += "+";
             }

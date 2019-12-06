@@ -18,10 +18,12 @@ public class XyzMiddle {
 
     public boolean xyzMiddle(String str) {
 
-        if (str == null || str.length() < 3) {
+        if (str == null) {
+            throw new IllegalArgumentException("String should be not null");
+        }
+        if (str.length() < 3) {
             return false;
         }
-
         int middle = str.length() / 2;
         if (str.length() % 2 == 1) {
             return (str.substring(middle - 1, middle + 2)).equals("xyz");

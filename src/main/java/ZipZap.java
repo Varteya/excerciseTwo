@@ -9,7 +9,7 @@ public class ZipZap {
 
     public String zipZap(String str) {
         if (str == null) {
-            return null;
+            throw new IllegalArgumentException("String should be not null");
         }
         String answer = "";
         if (str.length() < 3) {

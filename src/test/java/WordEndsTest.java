@@ -1,29 +1,31 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class WordEndsTest {
+public class WordEndsTest {
 
     //GIVEN
     WordEnds wordEnds = new WordEnds();
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void shouldTestNullString () {
         //WHEN
         String answer = wordEnds.wordEnds(null, "ss");
 
         //THEN
-        assertNull(answer);
+        fail("Expected IllegalArgumentException");
     }
-    @Test
+
+    @Test(expected = IllegalArgumentException.class)
     public void shouldTestNullWord () {
         //WHEN
         String answer = wordEnds.wordEnds("asd", null);
 
         //THEN
-        assertEquals("", answer);
+        fail("Expected IllegalArgumentException");
 
     }
+
     @Test
     public void shouldTestEmptyString () {
         //WHEN
@@ -34,6 +36,7 @@ class WordEndsTest {
         assertEquals("", answer1);
         assertEquals("", answer2);
     }
+
     @Test
     public void shouldTestEmptyWord () {
         //WHEN
@@ -44,6 +47,7 @@ class WordEndsTest {
         assertEquals("", answer1);
         assertEquals("", answer2);
     }
+
     @Test
     public void shouldTestStringWithoutWord () {
         //WHEN
@@ -65,6 +69,7 @@ class WordEndsTest {
         assertEquals("", answer7);
 
     }
+
     @Test
     public void shouldTestTooLongWord () {
         //WHEN
@@ -79,6 +84,7 @@ class WordEndsTest {
         assertEquals("", answer3);
         assertEquals("", answer4);
     }
+
     @Test
     public void shouldTestWordOnTheEdge () {
         //WHEN
@@ -91,8 +97,8 @@ class WordEndsTest {
         assertEquals("C", answer1);
         assertEquals("r", answer2);
         assertEquals("Nd", answer3);
-
     }
+
     @Test
     public void shouldTestWordAfterWord () {
         //WHEN
@@ -104,6 +110,7 @@ class WordEndsTest {
         assertEquals("PrPrPr", answer2);
 
     }
+
     @Test
     public void shouldTestWordWithSeparators () {
         //WHEN
@@ -117,6 +124,6 @@ class WordEndsTest {
         assertEquals("EE", answer2);
         assertEquals("MwMw", answer3);
         assertEquals("IIIII", answer4);
-
     }
+
 }

@@ -9,15 +9,10 @@
 
 public class PreFour {
 
-    public static void main(String[] args) {
-        PreFour preFour = new PreFour();
-        int[] answer = preFour.pre4(new int[]{1, 2, 4, 1});
-        System.out.println(answer);
-    }
 
     public int[] pre4(int[] nums) {
         if (nums == null) {
-            return null;
+            throw new IllegalArgumentException("Array should be not null");
         }
         if (nums.length == 0) {
             return nums;
